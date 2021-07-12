@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+    #div1{
+      background-color: yellow;
+      width:100px;
+      height:100px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+<div id="div1"></div>
+
+    <script type="text/javascript">
+        var sonuc;
+
+        function Degistir(){
+          var x=["blue","red","green","cyan"];
+          var random=Math.round(Math.random()*3);
+          sonuc= x[random];
+          return sonuc;
+        }
+
+        setTimeout(function() {
+            Degistir();
+            document.getElementById("div1").style.backgroundColor = Degistir();
+
+        },4000);
+
+        /*setInterval(function() {
+            Degistir();
+            document.getElementById("div1").style.backgroundColor = Degistir();
+
+        },2000);*/
+    </script>
+
+  </body>
+</html>

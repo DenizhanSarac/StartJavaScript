@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<div id="div1"></div>
+
+<script>
+
+  var div = document.getElementById("div1");
+  div.style.width="150px";
+  div.style.height="150px";
+  div.style.position="absolute";
+  div.style.backgroundColor="blue";
+  div.style.top="1px";
+  div.style.left="1px";
+
+  var YukariDon=false;
+  var SolaDon=false;
+
+  function animasyon (div, top, left){
+
+    var ustKonum = Number(div.style.top.split("px")[0]);
+    var solKonum = Number(div.style.left.split("px")[0]);
+
+    if(ustKonum >= (window.innerHeight - 150)){
+      YukariDon=true;
+    }
+    else if(ustKonum <=0)
+    {
+      YukariDon=false;
+    }
+
+
+      div.style.top=(ustKonum + top).toString() +"px";
+
+      if(solKonum >= (window.innerWidth - 150)){
+        SolaDon=true;
+      }
+
+      else if(ustKonum <=0){
+          SolaDon=false;
+      }
+
+
+
+        div.style.left=(solKonum + left).toString() +"px";
+  }
+
+  setInterval(function () {
+    if(YukariDon == true && SolaDon == true)
+    {
+      animasyon(div,-1,-1);
+    }
+
+    else if(YukariDon == false && SolaDon == true){
+      animasyon(div,1,-1);
+    }
+    else if(YukariDon == true && SolaDon ==false){
+      animasyon(div,-1,1);
+    }
+    else
+    {
+      animasyon(div,1,1);
+    }
+
+
+  }, 2);
+
+
+
+</script>
+
+  </body>
+</html>
